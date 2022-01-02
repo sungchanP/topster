@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Topster</title>
+</head>
+<body>
+    <div class="flex" id="main_page">
+        <div id="create">Create Topster</div>
+        <div id="collection">My Topsters</div>
+    </div>
+
+
+    <div class="hidden" id="create_page">
+        <div id="create_container">
+            <div id="left">
+                <form id="search_container">
+                    <input type="text" id="search" placeholder="Search album, artist">
+                    <input type="submit" value="search">
+                </form>
+                <div id="search_result_container" class="grid">
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                    <div class="each_result"></div>
+                </div>
+            </div>
+            <div id="right">
+                <div id="templates_container">
+                    <div id="option_container" class="flex">
+                        <div id="template_option">
+                            <input type="radio" name="template" id="top9" value="9"><label for="top9">Top 9</label>
+                            <input type="radio" name="template" id="top16" value="16"><label for="top16">Top 16</label>
+                            <input type="radio" name="template" id="top25" value="25"><label for="top25">Top 25</label>
+                            <input type="radio" name="template" id="top36" value="36"><label for="top36">Top 36</label>
+                        </div>
+                        <form id="save_topster">
+                            <input type="text" placeholder="Name this topster">
+                            <input type="submit" value="Save">
+                        </form>
+                    </div>
+                </div>
+                <div class="hidden flex" id="chosen_one_container">
+                    <div class="grid" id="chosen_one"></div> 
+                    <div class="flex" id="title_container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="hidden" id="collection_page">
+    </div>
+
+
+
+    <script src="js/main.js"></script>
+    <script src="js/create.js"></script>
+    <script src="js/collection.js"></script>
+
+</body>
+</html>
