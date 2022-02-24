@@ -126,17 +126,6 @@ body {
 }
 
 
-#title_container{
-    flex-direction: column;
-    margin-top: 10px;
-    height: 90vh;
-}
-
-#title_container >div {
-    border: 1px solid white;
-    margin: 2px;
-    flex: 1;
-}
 
 #search_result_container{
     grid-template-columns: auto auto;

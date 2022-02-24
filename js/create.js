@@ -77,7 +77,6 @@ function tempClicked(event){
         createTemp(templateId);
     }else{
         while(chosenTemplate.hasChildNodes()) chosenTemplate.removeChild(chosenTemplate.lastChild);
-        while(titleContainer.hasChildNodes()) titleContainer.removeChild(titleContainer.lastChild);
         createTemp(templateId);
     }
 }
@@ -87,12 +86,7 @@ function createTemp(size){// instead of having html for every templates written 
         albumContainer.classList.add("album");
         albumContainer.style.cssText = `height: calc(87vh/${Math.sqrt(size)});`;
         albumContainer.id = `num${i+1}`;
-        let title = document.createElement("div");
-        title.classList.add("title");
-        title.id = `num${i+1}`;
-        //albumContainer.style.cssText = `flex-basis: calc(${100/(Math.sqrt(size))}% - 10px)`;
         chosenTemplate.appendChild(albumContainer);
-        titleContainer.appendChild(title);
     }
     chosenTemplate.style.cssText = `grid-template-columns: repeat(${Math.sqrt(size)}, calc(87vh/${Math.sqrt(size)})`; //this cant be done in css as the noOfColuns varies for each template
     let albums = document.querySelectorAll(".album"); //get all independent album as an array
@@ -104,6 +98,7 @@ function createTemp(size){// instead of having html for every templates written 
     });
 }
 //drag and drop events
+let origin;
 function dragStart(e){
     e.target.style.opacity = '0.6';
     draggedItemClass = e.target.className;
@@ -133,9 +128,8 @@ function drop(e){
             nodeCopy.id = Date.now() + Math.random();
             nodeCopy.className = "copiedAlbum";
             this.appendChild(nodeCopy);
-            //eachTitles[this.id-1].innerHTML = nodeCopy.alt;
             nodeCopy.addEventListener("dragstart", e =>{
-                e.target.parentElement.style.border = "solid 1.5px white"
+                origin = e.target.parentElement;
                 draggedItemClass = e.target.className;
                 e.target.style.opacity = "0.6";
                 e.dataTransfer.setData("text/plain", e.target.id);
@@ -144,7 +138,9 @@ function drop(e){
             nodeCopy.addEventListener("dragend", e => e.target.style.opacity = '1');
         }else{
             this.appendChild(document.getElementById(data));
-            //eachTitles[this.id-1].innerHTML = document.getElementById(data).alt;
+            if(!origin.hasChildNodes()){
+                origin.style.border = "solid 1.5px white";
+            }
         }
     } else return;
 }
