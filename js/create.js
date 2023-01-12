@@ -15,7 +15,6 @@ let eachTitles;
 const api_key = "cc9cd7dbf841a2ea2bc6a05f10edd789";
 const url = "https://ws.audioscrobbler.com/2.0";
 
-
 searchContainer.addEventListener("submit", onSearch); // search for album title or artist
 function onSearch(evt){
     evt.preventDefault();
